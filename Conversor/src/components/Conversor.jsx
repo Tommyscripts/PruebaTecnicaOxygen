@@ -70,8 +70,8 @@ const CustomHeart = styled.div`
 
 const Resultado = styled.p`
   color: #ffffff;
-  width: 40%;
-  padding-left: 60%;
+  width: 30%;
+  padding-left: 80%;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;`
 
@@ -81,6 +81,11 @@ color: white;
 font-family: 'Poppins', sans-serif;
 font-weight: 600;`
 
+const Unidad = styled.div`
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+`
 
 const Conversor = () => {
   const [medida, setMedida] = useState('');
@@ -134,12 +139,12 @@ const Conversor = () => {
       cm: { pulgadas: valor / 2.54 },
       pulgadas: { cm: valor * 2.54 },
     }
-
+  
     const conversionActual = conversiones[unidad]
     if (conversionActual) {
       const unidadConvertida = comparacionInvertida ? getUnidadContraria(unidad) : getUnidadContraria(unidad)
       const valorConvertido = conversionActual[unidadConvertida]
-      return { valor: valorConvertido, unidad: 'metros' }
+      return { valor: valorConvertido, unidad: unidadConvertida }
     } else {
       return { valor: undefined, unidad: '' }
     }
@@ -153,8 +158,8 @@ const Conversor = () => {
     const unidadesContrarias = {
       kms: 'millas',
       millas: 'kms',
-      pies: 'metros',
       metros: 'pies',
+      pies: 'metros',
       cm: 'pulgadas',
       pulgadas: 'cm',
     }
@@ -192,13 +197,14 @@ const Conversor = () => {
           </SwapButton>
           <Input
             type="number"
-            placeholder="Ingrese la medida"
+            placeholder={`Ingrese la medida en ${unidad}`}
             value={medida}
             onChange={(e) => setMedida(e.target.value)}
           />
+          <Unidad>{unidad}</Unidad>
         </InputContainer>
+        <CustomHeart onClick={agregarFavorito} />
         {medida && <Resultado>{resultado}</Resultado>}
-          <CustomHeart onClick={agregarFavorito} />
       </ContainerInput>
       <Container>
         <Favoritos favoritos={favoritos} eliminarFavorito={eliminarFavorito} />
