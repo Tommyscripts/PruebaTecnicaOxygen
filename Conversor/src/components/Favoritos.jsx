@@ -1,5 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const FavoritosList = styled.ul`
   list-style: none;
@@ -8,16 +7,21 @@ const FavoritosList = styled.ul`
   color: #000000;
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   
   li {
-    width: 48%; /* Ajusta según sea necesario para dar espacio entre las columnas */
-    display: flex;
-    flex-direction: row; 
-    justify-content: space-between;
-    margin-bottom: 0.625rem;
-    padding: 0.625rem;
+    width: 48%;
     background-color: #e3e3e3;
     border-radius: 5px;
+    margin-bottom: 0.625rem;
+  }
+
+  .favorito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem;
+    border-bottom: 1px solid #ddd;
   }
 
   .arrow {
@@ -31,11 +35,13 @@ const FavoritosList = styled.ul`
     cursor: pointer;
     border: none;
     border-radius: 3px;
-    margin-left: 10px;
     background-color: transparent;
   }
-`;
-
+  @media (max-width: 768px) {
+    li {
+      width: 100%;
+    }
+  }`
 
 const Favoritos = ({ favoritos, eliminarFavorito }) => {
   return (
@@ -44,15 +50,17 @@ const Favoritos = ({ favoritos, eliminarFavorito }) => {
       <FavoritosList>
         {favoritos.map((fav, index) => (
           <li key={index}>
-            <span>{`${fav.medida} ${fav.unidad}`}</span>
-            <span className="arrow">&#8594;</span>
-            <span>{`${fav.resultado}`}</span>
-            <button onClick={() => eliminarFavorito(index)}>X</button>
+            <div className="favorito">
+              <span>{`${fav.medida} ${fav.unidad}`}</span>
+              <span className="arrow">&#8594;</span>
+              <span>{`${fav.resultado}`}</span>
+              <button onClick={() => eliminarFavorito(index)}>X</button>
+            </div>
           </li>
         ))}
       </FavoritosList>
     </div>
-  );
-};
+  )
+}
 
-export default Favoritos;
+export default Favoritos
