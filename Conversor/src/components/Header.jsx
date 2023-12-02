@@ -23,7 +23,10 @@ const Arrow = styled(MdSwapHoriz)`
   text-align: center;`
 
 const Title = styled.h1`
-  margin: 0;`
+  margin: 0;
+  font-family: 'Proppins', sans-serif;
+  font-weight: 900;
+  `
 
 const Header = () => {
   return (

@@ -11,7 +11,7 @@ const FavoritosList = styled.ul`
   
   li {
     width: 48%;
-    background-color: #e3e3e3;
+    background-color: rgba(227, 227, 227, 1);
     border-radius: 5px;
     margin-bottom: 0.625rem;
   }

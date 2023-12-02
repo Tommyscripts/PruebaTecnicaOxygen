@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-direction: column;`
 
 const ContainerInput = styled.div`
-  background-color: #2c003b;
+  background-color: rgba(46, 0, 57, 1);
   max-width: 56.25rem;
   margin: 20px auto;
   text-align: center;
@@ -21,7 +21,7 @@ const InputContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-  background-color: #2c003b;`
+  background-color: rgba(46, 0, 57, 1);`
 
 const Input = styled.input`
   width: 45%;
@@ -30,14 +30,16 @@ const Input = styled.input`
   border-bottom: 1px solid white;
   background-color: transparent;
   color: white;
-  background-color: #2c003b;`
+  background-color: rgba(46, 0, 57, 1);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;`
 
 const Select = styled.select`
   width: 45%;
   padding: 10px;
   border: none;
   border-bottom: 1px solid white;
-  background-color: #2c003b;
+  background-color: rgba(46, 0, 57, 1);
   color: white;`
 
 const SwapButton = styled.button`
@@ -48,7 +50,7 @@ const SwapButton = styled.button`
   border-radius: 5px;
   background-color: transparent;
   color: white;
-  background-color: #2c003b;`
+  background-color: rgba(46, 0, 57, 1);`
 
 const CustomHeart = styled.div`
   background-color: transparent;
@@ -69,7 +71,16 @@ const CustomHeart = styled.div`
 const Resultado = styled.p`
   color: #ffffff;
   width: 40%;
-  padding-left: 60%;`
+  padding-left: 60%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;`
+
+
+const ConversorTitle = styled.h1`
+color: white;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;`
+
 
 const Conversor = () => {
   const [medida, setMedida] = useState('');
@@ -159,7 +170,7 @@ const Conversor = () => {
   return (
     <>
       <ContainerInput>
-        <h1 style={{ color: 'white' }}>Conversor</h1>
+        <ConversorTitle>Conversor</ConversorTitle>
         <InputContainer>
           <Select value={unidad} onChange={(e) => setUnidad(e.target.value)}>
             {comparacionInvertida ? (

@@ -12,7 +12,10 @@ const FooterContainer = styled.div`
 const TextContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 10px;`
+  gap: 10px;
+  font-family: 'Proppins', sans-serif;
+  font-weight: 400;
+  `
 
 const Footer = () => {
   return (
