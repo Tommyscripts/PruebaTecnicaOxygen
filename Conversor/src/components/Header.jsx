@@ -18,9 +18,9 @@ const ArrowsContainer = styled.div`
 const Arrow = styled(MdSwapHoriz)`
   margin: 0 10px;
   font-size: 30px;
-  cursor: pointer;
   color: #2e0039; 
-  text-align: center;`
+  text-align: center;
+`
 
 const Title = styled.h1`
   margin: 0;
