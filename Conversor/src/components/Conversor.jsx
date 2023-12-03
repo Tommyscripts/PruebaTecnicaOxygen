@@ -138,15 +138,17 @@ const Conversor = () => {
       metros: { pies: valor * 0.3048 },
       cm: { pulgadas: valor / 2.54 },
       pulgadas: { cm: valor * 2.54 },
+      milimetros: { yardas: valor / 914.4 },
+      yardas: { milimetros: valor * 914.4 },
     }
   
-    const conversionActual = conversiones[unidad]
+    const conversionActual = conversiones[unidad];
     if (conversionActual) {
-      const unidadConvertida = comparacionInvertida ? getUnidadContraria(unidad) : getUnidadContraria(unidad)
-      const valorConvertido = conversionActual[unidadConvertida]
-      return { valor: valorConvertido, unidad: unidadConvertida }
+      const unidadConvertida = comparacionInvertida ? getUnidadContraria(unidad) : getUnidadContraria(unidad);
+      const valorConvertido = conversionActual[unidadConvertida];
+      return { valor: valorConvertido, unidad: unidadConvertida };
     } else {
-      return { valor: undefined, unidad: '' }
+      return { valor: undefined, unidad: '' };
     }
   }
 
@@ -162,16 +164,18 @@ const Conversor = () => {
       pies: 'metros',
       cm: 'pulgadas',
       pulgadas: 'cm',
-    }
-    return unidadesContrarias[unidad]
-  }
-
+      milimetros: 'yardas',
+      yardas: 'milimetros',
+    };
+    return unidadesContrarias[unidad];
+  };
+  
   const CustomOption = ({ value, label }) => (
     <option value={value}>
       {label}
     </option>
-  )
-
+  );
+  
   return (
     <>
       <ContainerInput>
@@ -181,17 +185,20 @@ const Conversor = () => {
             {comparacionInvertida ? (
               <>
                 <CustomOption value="millas" label="Millas → Kilómetros" />
-                <CustomOption value="pies" label="Pies → Metros" />
+                <CustomOption value="metros" label="Metros → Pies" />
                 <CustomOption value="pulgadas" label="Pulgadas → Centímetros" />
+                <CustomOption value="yardas" label="Yardas → Milimetros" />
               </>
             ) : (
               <>
                 <CustomOption value="kms" label="Kilómetros → Millas" />
-                <CustomOption value="metros" label="Metros → Pies" />
+                <CustomOption value="pies" label="Pies → Metros" />
                 <CustomOption value="cm" label="Centímetros → Pulgadas" />
+                <CustomOption value="milimetros" label="Milimetros → Yardas" />
               </>
             )}
           </Select>
+  
           <SwapButton onClick={cambiarComparacion}>
             <MdSwapHoriz size="20" />
           </SwapButton>
